@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="253.0" layoutY="14.0" text="Task title" />
+            <Button fx:id="addButton" layoutX="202.0" layoutY="367.0" mnemonicParsing="false" onAction="#onAddButtonPressed" text="Save" />
+            <Button fx:id="cancelButton" layoutX="412.0" layoutY="367.0" mnemonicParsing="false" onAction="#onCancelButtonPressed" text="Cancel" />
+            <TextField layoutX="5.0" layoutY="38.0" prefHeight="25.0" prefWidth="589.0" />
+            <SplitPane dividerPositions="0.2857142857142857" layoutX="5.0" layoutY="78.0" orientation="VERTICAL" prefHeight="268.0" prefWidth="591.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="589.0">
+                     <children>
+                        <Label layoutX="467.0" layoutY="3.0" text="Time" />
+                        <DatePicker fx:id="atDatePicker" layoutX="206.0" layoutY="30.0" />
+                        <RadioButton fx:id="nonRepeatedRadioButton" layoutX="34.0" layoutY="31.0" mnemonicParsing="false" onAction="#onNonRepeatedRadioButton" text="Nonrepeated" />
+                        <Label layoutX="281.0" layoutY="3.0" text="Date" />
+                        <Slider fx:id="toHoursSlider" blockIncrement="1.0" layoutX="398.0" layoutY="23.0" max="23.0" />
+                        <Slider fx:id="toMinutesSlider" layoutX="398.0" layoutY="49.0" max="59.0" />
+                        <TextField fx:id="atHours" layoutX="549.0" layoutY="17.0" prefHeight="25.0" prefWidth="26.0" />
+                        <TextField fx:id="atMinutes" layoutX="550.0" layoutY="44.0" prefHeight="25.0" prefWidth="25.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="589.0">
+                     <children>
+                        <RadioButton fx:id="repeatedRadioButton" layoutX="38.0" layoutY="80.0" mnemonicParsing="false" onAction="#onRepeatedRadioButton" text="Repeated" />
+                        <DatePicker layoutX="149.0" layoutY="22.0" />
+                        <DatePicker layoutX="359.0" layoutY="22.0" />
+                        <Label layoutX="190.0" layoutY="3.0" text="From" />
+                        <Label layoutX="400.0" layoutY="3.0" text="To" />
+                        <Label layoutX="71.0" layoutY="151.0" text="Interval" />
+                        <Slider fx:id="fromHoursSlider" blockIncrement="1.0" layoutX="152.0" layoutY="75.0" max="23.0" />
+                        <Slider fx:id="fromMinutesSlider" layoutX="152.0" layoutY="102.0" />
+                        <Slider fx:id="toHoursSlider" blockIncrement="1.0" layoutX="361.0" layoutY="74.0" max="23.0" />
+                        <Slider fx:id="toMinutesSlider" layoutX="361.0" layoutY="101.0" />
+                        <Label layoutX="224.0" layoutY="3.0" text="date" />
+                        <Label layoutX="427.0" layoutY="3.0" text="date" />
+                        <Label layoutX="222.0" layoutY="55.0" text="time" />
+                        <Label layoutX="425.0" layoutY="55.0" text="time" />
+                        <TextField fx:id="fromHours" layoutX="299.0" layoutY="69.0" prefHeight="25.0" prefWidth="24.0" />
+                        <TextField fx:id="fromMinutes" layoutX="299.0" layoutY="96.0" prefHeight="25.0" prefWidth="24.0" />
+                        <TextField fx:id="toHours" layoutX="507.0" layoutY="68.0" prefHeight="25.0" prefWidth="26.0" />
+                        <TextField fx:id="toMinutes" layoutX="507.0" layoutY="95.0" prefHeight="25.0" prefWidth="26.0" />
+                        <Slider layoutX="153.0" layoutY="163.0" prefHeight="14.0" prefWidth="90.0" />
+                        <TextField layoutX="243.0" layoutY="157.0" prefHeight="25.0" prefWidth="28.0" />
+                        <Label layoutX="186.0" layoutY="138.0" text="days" />
+                        <Label layoutX="316.0" layoutY="138.0" text="hours" />
+                        <Label layoutX="442.0" layoutY="138.0" text="minutes" />
+                        <Slider layoutX="287.0" layoutY="163.0" prefHeight="14.0" prefWidth="90.0" />
+                        <Slider layoutX="417.0" layoutY="163.0" prefHeight="14.0" prefWidth="90.0" />
+                        <TextField layoutX="377.0" layoutY="157.0" prefHeight="25.0" prefWidth="26.0" />
+                        <TextField layoutX="507.0" layoutY="157.0" prefHeight="25.0" prefWidth="26.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
