@@ -25,7 +25,6 @@ public class StartController {
 
     public StartController() {
         setMode("current");
-
     }
 
         @FXML
@@ -40,41 +39,23 @@ public class StartController {
         @FXML
         private ComboBox<String> comboBox;
 
-
         @FXML
         private Button okButton;
-
-
-
-        @FXML
-        void initialize() {
-
-            comboBox.getItems().addAll("current", "download", "new");
-            comboBox.setValue(getMode());
-            okButton.setOnAction(event -> {
-                onOKButtonPressed(new ActionEvent());
-            });
-
-            cancelButton.setOnAction(event -> {
-                onCancelButtonPressed(new ActionEvent());
-            });
-
-            comboBox.setOnAction(event -> {
-                onComboBoxChecked(new ActionEvent());
-            });
-
-        }
 
     public void onOKButtonPressed(ActionEvent actionEvent) {
         setMode(comboBox.getValue());
         okButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/fxml/allTasksWindow.fxml"));
+        loader.setLocation(getClass().getResource("/view/fxml/mainWindow.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // parameter transferring into MainController *************
+        MainController mainController = loader.getController(); //*
+        mainController.setMode(getMode());                      //*
+        // ********************************************************
         Parent root = loader.getRoot();
         Stage stage = new Stage();
         stage.setTitle("TaskManager: task list");
@@ -89,6 +70,27 @@ public class StartController {
 
     public void onComboBoxChecked(ActionEvent actionEvent) {
             setMode(comboBox.getValue());
+    }
+
+    @FXML
+    void initialize() {
+
+        comboBox.getItems().addAll("current", "download", "new");
+        comboBox.setValue(getMode());
+        okButton.setOnAction(event -> {
+            onOKButtonPressed(new ActionEvent());
+        });
+
+        cancelButton.setOnAction(event -> {
+            onCancelButtonPressed(new ActionEvent());
+        });
+
+        comboBox.setOnAction(event -> {
+            onComboBoxChecked(new ActionEvent());
+        });
+
+        logger.info("Logger: choice list option window started.");
+
     }
 
 }

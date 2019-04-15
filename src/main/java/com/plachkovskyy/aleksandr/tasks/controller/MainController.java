@@ -21,7 +21,18 @@ public class MainController {
     //        logger.info("Logger testing - info");
     //        logger.error("Logger testing - error");
 
-    private String mode = "current";// needed to be fixed
+    private String mode;
+
+    public String getMode() {return mode; }
+    public void setMode(String mode) {
+        this.mode = mode;
+        modeLabel.setText("Using " + mode + " list");
+    }
+
+/*    public MainController() {
+        setMode("current");
+    }
+*/
 
     @FXML
     private ResourceBundle resources;
@@ -106,6 +117,6 @@ public class MainController {
     @FXML
     void initialize() {
 
-        modeLabel.setText("Using " + mode + " list");
+
     }
 }
