@@ -2,11 +2,46 @@
 <Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
-  <nodes />
+  <nodes>
+    <node x="362.0" y="278.0">com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList</node>
+    <node x="962.0" y="890.0">com.plachkovskyy.aleksandr.tasks.exceptions.MyException</node>
+    <node x="667.0" y="890.0">com.plachkovskyy.aleksandr.tasks.model.TaskIO</node>
+    <node x="1077.0" y="0.0">com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController</node>
+    <node x="815.0" y="0.0">com.plachkovskyy.aleksandr.tasks.model.Task</node>
+    <node x="469.0" y="0.0">com.plachkovskyy.aleksandr.tasks.model.TaskList</node>
+    <node x="0.0" y="1232.0">com.plachkovskyy.aleksandr.tasks.model.Tasks</node>
+    <node x="576.0" y="278.0">com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList</node>
+    <node x="0.0" y="890.0">com.plachkovskyy.aleksandr.tasks.controller.StartController</node>
+    <node x="367.0" y="668.0">com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList.Node</node>
+    <node x="0.0" y="0.0">com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow</node>
+    <node x="336.0" y="890.0">com.plachkovskyy.aleksandr.tasks.controller.CalendarController</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
-  <SelectedNodes />
+  <edges>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="0.0" y="-170.0" />
+      <point x="673.0" y="253.0" />
+      <point x="614.5" y="253.0" />
+      <point x="48.5" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="0.0" y="-170.0" />
+      <point x="459.0" y="253.0" />
+      <point x="517.5" y="253.0" />
+      <point x="-48.5" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList.Node" target="com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList">
+      <point x="0.0" y="-81.5" />
+      <point x="0.0" y="170.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9" x="859.6249999999994" y="895.6249999999995" />
+  <SelectedNodes>
+    <node>com.plachkovskyy.aleksandr.tasks.controller.StartController</node>
+    <node>com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController</node>
+    <node>com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow</node>
+    <node>com.plachkovskyy.aleksandr.tasks.controller.CalendarController</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
