@@ -1,9 +1,7 @@
-package com.plachkovskyy.aleksandr.tasks.controller;
+package com.plachkovskyy.aleksandr.tasks.view;
 
 import java.net.URL;
-import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -18,6 +16,15 @@ public class AddEditTaskWindow {
     final static Logger logger = Logger.getLogger(CalendarController.class);
     //        logger.info("Logger testing - info");
     //        logger.error("Logger testing - error");
+
+    private boolean deletable;
+    public boolean getDeletable() {return deletable; }
+    public void setDeletable(boolean deletable) {
+        this.deletable = deletable;
+        deleteButton.setDisable(!deletable);
+    }
+
+
 
     @FXML
     private ResourceBundle resources;
@@ -77,6 +84,9 @@ public class AddEditTaskWindow {
     private Button saveButton;
 
     @FXML
+    private Button deleteButton;
+
+    @FXML
     private Slider intervalMinutesSlider;
 
     @FXML
@@ -108,6 +118,12 @@ public class AddEditTaskWindow {
         //
         saveButton.getScene().getWindow().hide();
 
+    }
+
+    @FXML
+    void onDeleteButtonPressed(ActionEvent event) {
+        //
+        deleteButton.getScene().getWindow().hide();
     }
 
     @FXML

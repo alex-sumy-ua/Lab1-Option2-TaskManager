@@ -1,4 +1,4 @@
-package com.plachkovskyy.aleksandr.tasks.controller;
+package com.plachkovskyy.aleksandr.tasks.view;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,19 +46,25 @@ public class StartController {
         setMode(comboBox.getValue());
         okButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/fxml/mainWindow.fxml"));
+        loader.setLocation(getClass().getResource("/view/fxml/mainListWindow.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error("Logger: " + e.getStackTrace());
         }
-        // parameter transferring into MainController *************
-        MainController mainController = loader.getController(); //*
-        mainController.setMode(getMode());                      //*
-        // ********************************************************
+        // parameter transferring into MainController *********************************
+        MainListWindowController mainListWindowController = loader.getController(); //*
+        mainListWindowController.setMode(getMode());                                //*
+        logger.info("Logger: Using " + getMode() + " list.");                       //*
+//        MainController mainController = new MainController(getMode());            //*
+//        loader.setController(mainController);                                     //*
+        // ****************************************************************************
         Parent root = loader.getRoot();
         Stage stage = new Stage();
         stage.setTitle("TaskManager: task list");
+        stage.setMinHeight(400);
+        stage.setMinWidth(600);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.showAndWait();
@@ -75,7 +81,7 @@ public class StartController {
     @FXML
     void initialize() {
 
-        comboBox.getItems().addAll("current", "download", "new");
+        comboBox.getItems().addAll("current", "loaded", "new");
         comboBox.setValue(getMode());
         okButton.setOnAction(event -> {
             onOKButtonPressed(new ActionEvent());

@@ -1,14 +1,15 @@
-package com.plachkovskyy.aleksandr.tasks.controller;
+package com.plachkovskyy.aleksandr.tasks.view;
 
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import org.apache.log4j.Logger;
 
 public class CalendarController {
@@ -16,7 +17,6 @@ public class CalendarController {
     final static Logger logger = Logger.getLogger(CalendarController.class);
     //        logger.info("Logger testing - info");
     //        logger.error("Logger testing - error");
-
 
     @FXML
     private ResourceBundle resources;
@@ -31,10 +31,31 @@ public class CalendarController {
     private DatePicker datePicker2;
 
     @FXML
+    private TableColumn<?, ?> atColumn;
+
+    @FXML
+    private TableColumn<?, ?> activeColumn;
+
+    @FXML
     private DatePicker datePicker1;
 
     @FXML
+    private TableColumn<?, ?> titleColumn;
+
+    @FXML
     private Button closeButton;
+
+    @FXML
+    private TableView<?> tableView;
+
+    @FXML
+    private TableColumn<?, ?> fromColumn;
+
+    @FXML
+    private TableColumn<?, ?> toColumn;
+
+    @FXML
+    private TableColumn<?, ?> intervalColumn;
 
     @FXML
     void onApplyButtonPressed(ActionEvent event) {
