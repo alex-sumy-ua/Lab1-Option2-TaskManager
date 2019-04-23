@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -9,9 +10,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.controller.CalendarController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.view.CalendarController">
     <children>
-      <TextArea layoutX="8.0" layoutY="3.0" prefHeight="310.0" prefWidth="595.0" />
       <Button fx:id="applyButton" layoutX="328.0" layoutY="360.0" mnemonicParsing="false" onAction="#onApplyButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Apply" />
       <Button fx:id="closeButton" layoutX="475.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCloseButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Close" />
       <DatePicker fx:id="datePicker1" layoutX="35.0" layoutY="360.0" onAction="#onDatePicker1Choose" prefHeight="25.0" prefWidth="100.0" />
@@ -19,5 +19,18 @@
       <Label layoutX="77.0" layoutY="320.0" text="Period (one next week default):" />
       <Label layoutX="71.0" layoutY="340.0" text="from" />
       <Label layoutX="213.0" layoutY="340.0" text="to" />
+      <TableView fx:id="tableView" layoutX="8.0" layoutY="3.0" prefHeight="310.0" prefWidth="594.0">
+         <columns>
+            <TableColumn fx:id="titleColumn" prefWidth="120.0" text="Title" />
+            <TableColumn fx:id="atColumn" minWidth="0.0" prefWidth="100.0" text="At" />
+            <TableColumn fx:id="fromColumn" prefWidth="100.0" text="From" />
+            <TableColumn fx:id="toColumn" prefWidth="100.0" text="To" />
+            <TableColumn fx:id="intervalColumn" prefWidth="100.0" text="Interval" />
+            <TableColumn fx:id="activeColumn" prefWidth="64.0" text="Active" />
+         </columns>
+         <opaqueInsets>
+            <Insets bottom="30.0" left="5.0" right="5.0" top="25.0" />
+         </opaqueInsets>
+      </TableView>
     </children>
 </AnchorPane>

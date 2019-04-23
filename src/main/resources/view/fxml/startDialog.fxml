@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.controller.StartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.view.StartController">
    <children>
       <Label fx:id="startLabel" layoutX="89.0" layoutY="6.0" text="Choose list option:" />
       <Button fx:id="okButton" layoutX="63.0" layoutY="65.0" mnemonicParsing="false" onAction="#onOKButtonPressed" prefHeight="25.0" prefWidth="65.0" text="OK" />

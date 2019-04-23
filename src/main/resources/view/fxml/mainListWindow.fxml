@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.view.MainListWindowController">
+   <children>
+      <Button fx:id="calendarButton" layoutX="35.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCalendarButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Calendar" />
+      <Button fx:id="addButton" layoutX="318.0" layoutY="360.0" mnemonicParsing="false" onAction="#onAddButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Add new task" />
+      <Button fx:id="detailsButton" layoutX="177.0" layoutY="360.0" mnemonicParsing="false" onAction="#onDetailsButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Task details" />
+      <Button fx:id="exitButton" layoutX="460.0" layoutY="360.0" mnemonicParsing="false" onAction="#onExitButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Exit" />
+      <Label fx:id="modeLabel" layoutX="10.0" layoutY="10.0" text="&lt;optional&gt;" />
+      <TableView fx:id="tableView" layoutX="9.0" layoutY="40.0" prefHeight="310.0" prefWidth="594.0">
+        <columns>
+          <TableColumn fx:id="titleColumn" prefWidth="120.0" text="Title" />
+          <TableColumn fx:id="atColumn" minWidth="0.0" prefWidth="100.0" text="At" />
+            <TableColumn fx:id="fromColumn" prefWidth="100.0" text="From" />
+            <TableColumn fx:id="toColumn" prefWidth="100.0" text="To" />
+            <TableColumn fx:id="intervalColumn" prefWidth="100.0" text="Interval" />
+            <TableColumn fx:id="activeColumn" prefWidth="64.0" text="Active" />
+        </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+   </children>
+</AnchorPane>
