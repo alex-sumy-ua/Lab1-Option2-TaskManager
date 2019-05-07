@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController">
+    <children>
+      <Button fx:id="applyButton" layoutX="380.0" layoutY="360.0" mnemonicParsing="false" onAction="#onApplyButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Apply" />
+      <Button fx:id="closeButton" layoutX="540.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCloseButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Close" />
+      <DatePicker fx:id="datePicker1" layoutX="60.0" layoutY="360.0" onAction="#onDatePicker1Choose" prefHeight="25.0" prefWidth="100.0" />
+      <DatePicker fx:id="datePicker2" layoutX="220.0" layoutY="360.0" onAction="#onDatePicker2Choose" prefHeight="25.0" prefWidth="100.0" />
+      <Label layoutX="107.0" layoutY="320.0" text="Period (one next week default):" />
+      <Label layoutX="97.0" layoutY="340.0" text="from" />
+      <Label layoutX="265.0" layoutY="340.0" text="to" />
+      <TableView fx:id="tableView" layoutX="9.0" layoutY="3.0" prefHeight="310.0" prefWidth="694.0">
+         <columns>
+            <TableColumn fx:id="timeColumn" minWidth="0.0" prefWidth="200.0" text="Date/Time" />
+            <TableColumn fx:id="titleColumn" prefWidth="400.0" text="Title" />
+            <TableColumn fx:id="repeatedColumn" prefWidth="92.0" text="Repeated" />
+         </columns>
+         <opaqueInsets>
+            <Insets bottom="30.0" left="5.0" right="5.0" top="25.0" />
+         </opaqueInsets>
+      </TableView>
+    </children>
+</AnchorPane>

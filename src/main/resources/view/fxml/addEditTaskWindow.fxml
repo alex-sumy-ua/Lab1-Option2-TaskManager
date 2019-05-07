@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="253.0" layoutY="14.0" text="Task title" />
+            <Button fx:id="saveButton" layoutX="180.0" layoutY="360.0" mnemonicParsing="false" onAction="#onSaveButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Save" />
+            <Button fx:id="cancelButton" layoutX="460.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCancelButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+            <TextField fx:id="titleField" layoutX="9.0" layoutY="38.0" prefHeight="25.0" prefWidth="594.0" />
+            <SplitPane dividerPositions="0.2857142857142857" layoutX="9.0" layoutY="78.0" orientation="VERTICAL" prefHeight="268.0" prefWidth="594.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="594.0">
+                     <children>
+                        <Label layoutX="467.0" layoutY="3.0" text="Time" />
+                        <DatePicker fx:id="atDatePicker" layoutX="200.0" layoutY="30.0" />
+                        <RadioButton fx:id="nonRepeatedRadioButton" layoutX="35.0" layoutY="30.0" mnemonicParsing="false" onAction="#onNonRepeatedRadioButton" text="Nonrepeated" />
+                        <Label layoutX="277.0" layoutY="3.0" text="Date" />
+                        <Slider fx:id="atHoursSlider" blockIncrement="1.0" layoutX="400.0" layoutY="22.0" max="23.0" prefWidth="150.0" />
+                        <Slider fx:id="atMinutesSlider" blockIncrement="1.0" layoutX="400.0" layoutY="50.0" max="59.0" prefWidth="150.0" />
+                        <TextField fx:id="atHours" alignment="CENTER" editable="false" layoutX="550.0" layoutY="15.0" prefHeight="28.0" prefWidth="28.0" />
+                        <TextField fx:id="atMinutes" alignment="CENTER" editable="false" layoutX="550.0" layoutY="44.0" prefHeight="28.0" prefWidth="28.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="594.0">
+                     <children>
+                        <RadioButton fx:id="repeatedRadioButton" layoutX="35.0" layoutY="80.0" mnemonicParsing="false" onAction="#onRepeatedRadioButton" text="Repeated" />
+                        <DatePicker fx:id="fromDatePicker" layoutX="150.0" layoutY="22.0" />
+                        <DatePicker fx:id="toDatePicker" layoutX="360.0" layoutY="22.0" />
+                        <Label layoutX="192.0" layoutY="3.0" text="From" />
+                        <Label layoutX="401.0" layoutY="3.0" text="To" />
+                        <Label layoutX="49.0" layoutY="142.0" text="Interval" />
+                        <Slider fx:id="fromHoursSlider" blockIncrement="1.0" layoutX="150.0" layoutY="72.0" max="23.0" prefWidth="150.0" />
+                        <Slider fx:id="fromMinutesSlider" blockIncrement="1.0" layoutX="150.0" layoutY="100.0" max="59.0" prefWidth="150.0" />
+                        <Slider fx:id="toHoursSlider" blockIncrement="1.0" layoutX="360.0" layoutY="72.0" max="23.0" prefWidth="150.0" />
+                        <Slider fx:id="toMinutesSlider" blockIncrement="1.0" layoutX="360.0" layoutY="100.0" max="59.0" prefWidth="150.0" />
+                        <Label layoutX="227.0" layoutY="3.0" text="date" />
+                        <Label layoutX="436.0" layoutY="3.0" text="date" />
+                        <Label layoutX="215.0" layoutY="52.0" text="time" />
+                        <Label layoutX="425.0" layoutY="52.0" text="time" />
+                        <TextField fx:id="fromHours" alignment="CENTER" editable="false" layoutX="300.0" layoutY="65.0" prefHeight="28.0" prefWidth="28.0" />
+                        <TextField fx:id="fromMinutes" alignment="CENTER" editable="false" layoutX="300.0" layoutY="94.0" prefHeight="28.0" prefWidth="28.0" />
+                        <TextField fx:id="toHours" alignment="CENTER" editable="false" layoutX="510.0" layoutY="65.0" prefHeight="28.0" prefWidth="28.0" />
+                        <TextField fx:id="toMinutes" alignment="CENTER" editable="false" layoutX="510.0" layoutY="94.0" prefHeight="28.0" prefWidth="28.0" />
+                        <Slider fx:id="intervalDaysSlider" blockIncrement="1.0" layoutX="150.0" layoutY="156.0" max="364.0" prefHeight="14.0" prefWidth="100.0" />
+                        <TextField fx:id="intervalDays" alignment="CENTER" editable="false" layoutX="250.0" layoutY="146.0" prefHeight="35.0" prefWidth="35.0" />
+                        <Label layoutX="186.0" layoutY="131.0" text="day(s)" />
+                        <Label layoutX="329.0" layoutY="131.0" text="hour(s)" />
+                        <Label layoutX="468.0" layoutY="131.0" text="minute(s)" />
+                        <Slider fx:id="intervalHoursSlider" blockIncrement="1.0" layoutX="295.0" layoutY="156.0" max="23.0" prefHeight="14.0" prefWidth="100.0" />
+                        <Slider fx:id="intervalMinutesSlider" blockIncrement="1.0" layoutX="440.0" layoutY="156.0" max="59.0" prefHeight="14.0" prefWidth="100.0" />
+                        <TextField fx:id="intervalHours" alignment="CENTER" editable="false" layoutX="395.0" layoutY="146.0" prefHeight="35.0" prefWidth="35.0" />
+                        <TextField fx:id="intervalMinutes" alignment="CENTER" editable="false" layoutX="540.0" layoutY="146.0" prefHeight="35.0" prefWidth="35.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <CheckBox fx:id="activeCheckBox" layoutX="63.0" layoutY="360.0" mnemonicParsing="false" onAction="#onActiveCheckBoxChecked" prefWidth="55.0" text="active" />
+            <Button fx:id="deleteButton" layoutX="320.0" layoutY="360.0" mnemonicParsing="false" onAction="#onDeleteButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Delete" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

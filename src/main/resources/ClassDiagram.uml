@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="477.90211640211635" y="847.0">com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList</node>
+    <node x="982.8642857142855" y="0.0">com.plachkovskyy.aleksandr.tasks.exceptions.MyException</node>
+    <node x="430.2354497354498" y="3162.0">com.plachkovskyy.aleksandr.tasks.MainApp</node>
+    <node x="279.7354497354498" y="2538.0">com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController</node>
+    <node x="691.9021164021163" y="825.0">com.plachkovskyy.aleksandr.tasks.model.TaskIO</node>
+    <node x="465.15784832451544" y="80.0">com.plachkovskyy.aleksandr.tasks.model.Task</node>
+    <node x="847.0449735449736" y="537.0">com.plachkovskyy.aleksandr.tasks.model.TaskList</node>
+    <node x="973.9021164021165" y="1169.0">com.plachkovskyy.aleksandr.tasks.model.Tasks</node>
+    <node x="1195.5230930335101" y="847.0">com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList</node>
+    <node x="1199.3218694885365" y="1800.5">com.plachkovskyy.aleksandr.tasks.controller.NotifySystem</node>
+    <node x="357.7354497354498" y="2927.0">com.plachkovskyy.aleksandr.tasks.controller.StartDialogController</node>
+    <node x="802.9021164021163" y="1303.0">com.plachkovskyy.aleksandr.tasks.model.Model</node>
+    <node x="47.5" y="2011.0">com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow</node>
+    <node x="519.0583333333332" y="1712.0">com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-137.57142857142867" y="-169.5" />
+      <point x="825.8306878306877" y="1283.0" />
+      <point x="467.40211640211635" y="1283.0" />
+      <point x="467.40211640211635" y="497.0" />
+      <point x="552.9911816578488" y="497.0" />
+      <point x="-20.666666666666686" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow" target="com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController">
+      <point x="21.125" y="-213.5" />
+      <point x="237.625" y="1961.0" />
+      <point x="597.0583333333332" y="1961.0" />
+      <point x="-78.0" y="114.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.TaskIO" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="83.33333333333326" y="-147.0" />
+      <point x="900.2354497354496" y="805.0" />
+      <point x="916.3306878306878" y="805.0" />
+      <point x="-27.71428571428578" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-62.39999999999992" y="-114.5" />
+      <point x="612.6583333333333" y="1682.0" />
+      <point x="433.01666666666665" y="1682.0" />
+      <point x="433.01666666666665" y="487.0" />
+      <point x="542.6578483245155" y="487.0" />
+      <point x="-31.0" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Tasks" target="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList">
+      <point x="140.66666666666657" y="-37.0" />
+      <point x="1325.568783068783" y="1149.0" />
+      <point x="1292.5230930335101" y="1149.0" />
+      <point x="0.0" y="125.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.StartDialogController" target="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController">
+      <point x="-104.0" y="-92.5" />
+      <point x="409.7354497354498" y="2902.0" />
+      <point x="357.7354497354498" y="2902.0" />
+      <point x="-78.0" y="169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.controller.NotifySystem">
+      <point x="96.0" y="-169.5" />
+      <point x="531.7354497354497" y="2498.0" />
+      <point x="1092.6521164021162" y="2498.0" />
+      <point x="1092.6521164021162" y="1991.0" />
+      <point x="1219.1552028218698" y="1991.0" />
+      <point x="-39.66666666666663" y="26.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.NotifySystem" target="com.plachkovskyy.aleksandr.tasks.controller.StartDialogController">
+      <point x="39.66666666666663" y="26.0" />
+      <point x="1298.4885361552033" y="1991.0" />
+      <point x="1283.9880621693121" y="1991.0" />
+      <point x="1283.9880621693121" y="2902.0" />
+      <point x="617.7354497354497" y="2902.0" />
+      <point x="104.0" y="-92.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList">
+      <point x="91.71428571428567" y="-169.5" />
+      <point x="1055.116402116402" y="1273.0" />
+      <point x="1406.4021164021165" y="1273.0" />
+      <point x="1406.4021164021165" y="1149.0" />
+      <point x="1357.1897597001766" y="1149.0" />
+      <point x="64.66666666666674" y="125.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="-55.428571428571445" y="-125.0" />
+      <point x="1237.0945216049386" y="795.0" />
+      <point x="1027.1878306878307" y="795.0" />
+      <point x="83.14285714285711" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.exceptions.MyException">
+      <point x="137.57142857142856" y="-169.5" />
+      <point x="1100.973544973545" y="1283.0" />
+      <point x="1479.9635361552034" y="1283.0" />
+      <point x="1479.9635361552034" y="50.0" />
+      <point x="1084.3642857142854" y="50.0" />
+      <point x="43.5" y="15.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow" target="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController">
+      <point x="126.75" y="213.5" />
+      <point x="343.25" y="2468.0" />
+      <point x="411.7354497354498" y="2468.0" />
+      <point x="-24.0" y="-169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-105.625" y="-213.5" />
+      <point x="110.875" y="1991.0" />
+      <point x="107.47130731922425" y="1991.0" />
+      <point x="107.47130731922425" y="437.0" />
+      <point x="490.99118165784876" y="437.0" />
+      <point x="-82.66666666666669" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-72.75" y="-125.0" />
+      <point x="502.15211640211635" y="805.0" />
+      <point x="508.693783068783" y="805.0" />
+      <point x="508.693783068783" y="507.0" />
+      <point x="563.324514991182" y="507.0" />
+      <point x="-10.333333333333371" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="27.71428571428578" y="-125.0" />
+      <point x="1320.237378747796" y="805.0" />
+      <point x="1307.5983245149916" y="805.0" />
+      <point x="1307.5983245149916" y="457.0" />
+      <point x="645.9911816578488" y="457.0" />
+      <point x="72.33333333333337" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.model.Model">
+      <point x="48.0" y="-169.5" />
+      <point x="483.7354497354498" y="2478.0" />
+      <point x="1022.6521164021162" y="2478.0" />
+      <point x="1022.6521164021162" y="1662.0" />
+      <point x="1011.5521164021164" y="1662.0" />
+      <point x="48.15000000000009" y="169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.TaskList" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="0.0" y="-114.0" />
+      <point x="944.0449735449736" y="497.0" />
+      <point x="604.6578483245155" y="497.0" />
+      <point x="31.0" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.TaskIO" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="0.0" y="-147.0" />
+      <point x="816.9021164021163" y="507.0" />
+      <point x="594.324514991182" y="507.0" />
+      <point x="20.66666666666663" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.model.TaskIO">
+      <point x="-91.71428571428578" y="-169.5" />
+      <point x="871.6878306878306" y="1273.0" />
+      <point x="816.9021164021163" y="1273.0" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow" target="com.plachkovskyy.aleksandr.tasks.model.Model">
+      <point x="63.375" y="-213.5" />
+      <point x="279.875" y="1971.0" />
+      <point x="989.6521164021162" y="1971.0" />
+      <point x="989.6521164021162" y="1692.0" />
+      <point x="915.2521164021164" y="1692.0" />
+      <point x="-48.14999999999998" y="169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.ArrayTaskList" target="com.plachkovskyy.aleksandr.tasks.exceptions.MyException">
+      <point x="83.14285714285711" y="-125.0" />
+      <point x="1375.665950176367" y="805.0" />
+      <point x="1468.9635361552034" y="805.0" />
+      <point x="1468.9635361552034" y="60.0" />
+      <point x="1055.3642857142854" y="60.0" />
+      <point x="14.5" y="15.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Task" target="com.plachkovskyy.aleksandr.tasks.exceptions.MyException">
+      <point x="0.0" y="-158.5" />
+      <point x="573.6578483245155" y="60.0" />
+      <point x="1026.3642857142854" y="60.0" />
+      <point x="-14.5" y="15.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="0.0" y="-169.5" />
+      <point x="963.4021164021163" y="805.0" />
+      <point x="971.7592592592591" y="805.0" />
+      <point x="27.714285714285666" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.controller.StartDialogController">
+      <point x="78.0" y="169.5" />
+      <point x="0.0" y="-92.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.NotifySystem" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="39.666666666666856" y="-26.0" />
+      <point x="1298.4885361552033" y="1692.0" />
+      <point x="1437.6302028218702" y="1692.0" />
+      <point x="1437.6302028218702" y="437.0" />
+      <point x="666.6578483245155" y="437.0" />
+      <point x="93.0" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.NotifySystem" target="com.plachkovskyy.aleksandr.tasks.model.Model">
+      <point x="1.1368683772161603E-13" y="-26.0" />
+      <point x="1258.8218694885368" y="1682.0" />
+      <point x="1107.8521164021163" y="1682.0" />
+      <point x="144.45000000000005" y="169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.MainApp" target="com.plachkovskyy.aleksandr.tasks.controller.StartDialogController">
+      <point x="0.0" y="-37.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController">
+      <point x="24.0" y="-169.5" />
+      <point x="459.7354497354498" y="2468.0" />
+      <point x="753.0583333333333" y="2468.0" />
+      <point x="78.00000000000006" y="114.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Model" target="com.plachkovskyy.aleksandr.tasks.model.Tasks">
+      <point x="45.85714285714289" y="-169.5" />
+      <point x="1009.2592592592592" y="1263.0" />
+      <point x="1184.9021164021165" y="1263.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow" target="com.plachkovskyy.aleksandr.tasks.exceptions.MyException">
+      <point x="-147.875" y="-213.5" />
+      <point x="68.625" y="1991.0" />
+      <point x="15.0" y="1991.0" />
+      <point x="15.0" y="50.0" />
+      <point x="997.3642857142855" y="50.0" />
+      <point x="-43.5" y="15.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.LinkedTaskList" target="com.plachkovskyy.aleksandr.tasks.model.TaskList">
+      <point x="24.25" y="-125.0" />
+      <point x="599.1521164021163" y="795.0" />
+      <point x="860.9021164021165" y="795.0" />
+      <point x="-83.14285714285711" y="114.0" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.controller.AddEditTaskWindow">
+      <point x="-96.0" y="-169.5" />
+      <point x="339.7354497354498" y="2498.0" />
+      <point x="89.75" y="2498.0" />
+      <point x="-126.75" y="213.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.CalendarWindowController" target="com.plachkovskyy.aleksandr.tasks.model.Model">
+      <point x="5.6843418860808015E-14" y="-114.5" />
+      <point x="675.0583333333333" y="1672.0" />
+      <point x="818.9521164021163" y="1672.0" />
+      <point x="-144.45000000000005" y="169.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.controller.MainListWindowController" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-144.0" y="-169.5" />
+      <point x="291.7354497354498" y="2518.0" />
+      <point x="26.0" y="2518.0" />
+      <point x="26.0" y="417.0" />
+      <point x="470.32451499118207" y="417.0" />
+      <point x="-103.33333333333337" y="158.5" />
+    </edge>
+    <edge source="com.plachkovskyy.aleksandr.tasks.model.Tasks" target="com.plachkovskyy.aleksandr.tasks.model.Task">
+      <point x="-140.66666666666669" y="-37.0" />
+      <point x="1044.2354497354497" y="1139.0" />
+      <point x="1180.7411816578488" y="1139.0" />
+      <point x="1180.7411816578488" y="487.0" />
+      <point x="614.9911816578488" y="487.0" />
+      <point x="41.333333333333314" y="158.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.922278162366268" x="627.621676204625" y="440.27328556806555" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
