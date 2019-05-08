@@ -16,104 +16,17 @@ import javafx.scene.control.*;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
+/**
+ * The class which shows current task details and offers to edit it or adds a new task.
+ */
 public class AddEditTaskWindow {
 
     final static Logger logger = Logger.getLogger(CalendarWindowController.class);
-
     private Model model;
-    public Model getModel() { return model; }
-    public void setModel(Model model) { this.model = model; }
-
     private boolean deletable;
-    public boolean getDeletable() {return deletable; }
-    public void setDeletable(boolean deletable) {
-        this.deletable = deletable;
-        deleteButton.setDisable(!deletable);
-    }
-
     private MainListWindowController mainListWindowController;
-    public MainListWindowController getMainListWindowController() { return mainListWindowController; }
-    public void setMainListWindowController(MainListWindowController mainListWindowController) {
-        this.mainListWindowController = mainListWindowController; }
-
     private Task task;
-    public Task getTask() throws MyException {
-        Task task;
-        if (nonRepeatedRadioButton.isSelected()) {
-            // nonRepeated task
-            Date at = java.util.Date.from(atDatePicker.getValue().
-                                              atStartOfDay().
-                                              atZone(ZoneId.systemDefault()).
-                                              toInstant());
-            at.setHours(Integer.parseInt(atHours.getText()));
-            at.setMinutes(Integer.parseInt(atMinutes.getText()));
-            at.setSeconds(0);
-            task = new Task(titleField.getText(), at);
-        } else {
-            //repeated tsak
-            Date start = java.util.Date.from(fromDatePicker.getValue().
-                                             atStartOfDay().
-                                             atZone(ZoneId.systemDefault()).
-                                             toInstant());
-            start.setHours(Integer.parseInt(fromHours.getText()));
-            start.setMinutes(Integer.parseInt(fromMinutes.getText()));
-            start.setSeconds(0);
-            Date end = java.util.Date.from(toDatePicker.getValue().
-                                           atStartOfDay().
-                                           atZone(ZoneId.systemDefault()).
-                                           toInstant());
-            end.setHours(Integer.parseInt(toHours.getText()));
-            end.setMinutes(Integer.parseInt(toMinutes.getText()));
-            end.setSeconds(0);
-            int interval = Integer.parseInt(intervalDays.getText()) * 86_400 +
-                           Integer.parseInt(intervalHours.getText()) * 3_600 +
-                           Integer.parseInt(intervalMinutes.getText()) * 60;
-            task = new Task(titleField.getText(), start, end, interval);
-        }
-        task.setActive(activeCheckBox.isSelected());
-        return task;
-    }
-    public void setTask(Task task) {
-        this.task = task;
-        titleField.setText(this.task.getTitle());
-        activeCheckBox.setSelected(this.task.isActive());
-        if (this.task.isRepeated()) {
-            setRepeated();
-            fromDatePicker.setValue(new java.sql.Date(this.task.getStart().getTime()).toLocalDate());
-            toDatePicker.setValue(new java.sql.Date(this.task.getEnd().getTime()).toLocalDate());
-            fromHoursSlider.setValue(new Long(this.task.getStart().getHours()));
-            fromMinutesSlider.setValue(new Long(this.task.getStart().getMinutes()));
-            toHoursSlider.setValue(new Long(this.task.getEnd().getHours()));
-            toMinutesSlider.setValue(new Long(this.task.getEnd().getMinutes()));
-            intervalDaysSlider.setValue(new Long(this.task.getInterval() / 86_400));
-            intervalHoursSlider.setValue(new Long(this.task.getInterval() % 86_400 /  3_600));
-            intervalMinutesSlider.setValue(new Long(this.task.getInterval() % 86_400 % 3_600 / 60));
-        }
-        else {
-            setNonRepeated();
-            atDatePicker.setValue(new java.sql.Date(this.task.getTime().getTime()).toLocalDate());
-            atHoursSlider.setValue(new Long(this.task.getTime().getHours()));
-           // atHours.setText( new Integer(this.task.getTime().getHours()).toString() ); // for example
-            atMinutesSlider.setValue(new Long(this.task.getTime().getMinutes()));
-        }
-    }
-
     private boolean add_NotEdit;
-    public boolean isAdd_NotEdit() { return add_NotEdit; }
-    public void setAdd_NotEdit(boolean add_NotEdit) {
-        this.add_NotEdit = add_NotEdit;
-    }
-
-    public AddEditTaskWindow() {
-        this.task = new Task();
-        this.model = new Model();
-        this.add_NotEdit = true;
-        this.mainListWindowController = new MainListWindowController();
-    }
-
-    public void setActiveCheckBox(boolean active) {
-        activeCheckBox.setSelected(active);
-    }
 
     @FXML
     private ResourceBundle resources;
@@ -205,7 +118,160 @@ public class AddEditTaskWindow {
     @FXML
     private CheckBox activeCheckBox;
 
+    /**
+     * Getter for model.
+     * @return Model model.
+     */
+    public Model getModel() {
+        return model;
+    }
+
+    /**
+     * Setter of model.
+     * @param model
+     */
+    public void setModel(Model model) { this.model = model; }
+
+    /**
+     * Get for Details/AddNew mode.
+     * @return boolean deletable.
+     */
+    public boolean getDeletable() {return deletable; }
+
+    /**
+     * Set of boolean deletable.
+     * @param deletable
+     */
+    public void setDeletable(boolean deletable) {
+        this.deletable = deletable;
+        deleteButton.setDisable(!deletable);
+    }
+
+    /**
+     * Getter for MainListWindowController.
+     * @return
+     */
+    public MainListWindowController getMainListWindowController() {
+        return mainListWindowController;
+    }
+
+    /**
+     * Setter of MainListWindowController.
+     * @param mainListWindowController
+     */
+    public void setMainListWindowController(MainListWindowController mainListWindowController) {
+        this.mainListWindowController = mainListWindowController;
+    }
+
+    /**
+     * Getter for task from visual elements.
+     * @return
+     * @throws MyException
+     */
+    public Task getTask() throws MyException {
+        Task task;
+        if (nonRepeatedRadioButton.isSelected()) {
+            // nonRepeated task
+            Date at = java.util.Date.from(atDatePicker.getValue().
+                                              atStartOfDay().
+                                              atZone(ZoneId.systemDefault()).
+                                              toInstant());
+            at.setHours(Integer.parseInt(atHours.getText()));
+            at.setMinutes(Integer.parseInt(atMinutes.getText()));
+            at.setSeconds(0);
+            task = new Task(titleField.getText(), at);
+        } else {
+            //repeated tsak
+            Date start = java.util.Date.from(fromDatePicker.getValue().
+                                             atStartOfDay().
+                                             atZone(ZoneId.systemDefault()).
+                                             toInstant());
+            start.setHours(Integer.parseInt(fromHours.getText()));
+            start.setMinutes(Integer.parseInt(fromMinutes.getText()));
+            start.setSeconds(0);
+            Date end = java.util.Date.from(toDatePicker.getValue().
+                                           atStartOfDay().
+                                           atZone(ZoneId.systemDefault()).
+                                           toInstant());
+            end.setHours(Integer.parseInt(toHours.getText()));
+            end.setMinutes(Integer.parseInt(toMinutes.getText()));
+            end.setSeconds(0);
+            int interval = Integer.parseInt(intervalDays.getText()) * 86_400 +
+                           Integer.parseInt(intervalHours.getText()) * 3_600 +
+                           Integer.parseInt(intervalMinutes.getText()) * 60;
+            task = new Task(titleField.getText(), start, end, interval);
+        }
+        task.setActive(activeCheckBox.isSelected());
+        return task;
+    }
+
+    /**
+     * Setter of values of visual elements.
+     * @param task
+     */
+    public void setTask(Task task) {
+        this.task = task;
+        titleField.setText(this.task.getTitle());
+        activeCheckBox.setSelected(this.task.isActive());
+        if (this.task.isRepeated()) {
+            setRepeated();
+            fromDatePicker.setValue(new java.sql.Date(this.task.getStart().getTime()).toLocalDate());
+            toDatePicker.setValue(new java.sql.Date(this.task.getEnd().getTime()).toLocalDate());
+            fromHoursSlider.setValue(new Long(this.task.getStart().getHours()));
+            fromMinutesSlider.setValue(new Long(this.task.getStart().getMinutes()));
+            toHoursSlider.setValue(new Long(this.task.getEnd().getHours()));
+            toMinutesSlider.setValue(new Long(this.task.getEnd().getMinutes()));
+            intervalDaysSlider.setValue(new Long(this.task.getInterval() / 86_400));
+            intervalHoursSlider.setValue(new Long(this.task.getInterval() % 86_400 /  3_600));
+            intervalMinutesSlider.setValue(new Long(this.task.getInterval() % 86_400 % 3_600 / 60));
+        }
+        else {
+            setNonRepeated();
+            atDatePicker.setValue(new java.sql.Date(this.task.getTime().getTime()).toLocalDate());
+            atHoursSlider.setValue(new Long(this.task.getTime().getHours()));
+           // atHours.setText( new Integer(this.task.getTime().getHours()).toString() ); // for example
+            atMinutesSlider.setValue(new Long(this.task.getTime().getMinutes()));
+        }
+    }
+
+    /**
+     * Getter for mode.
+     * @return boolean isAdd_NotEdit.
+     */
+    public boolean isAdd_NotEdit() {
+        return add_NotEdit;
+    }
+
+    /**
+     * Setter of mode.
+     * @param add_NotEdit
+     */
+    public void setAdd_NotEdit(boolean add_NotEdit) {
+        this.add_NotEdit = add_NotEdit;
+    }
+
+    /**
+     * Constructor.
+     */
+    public AddEditTaskWindow() {
+        this.task = new Task();
+        this.model = new Model();
+        this.add_NotEdit = true;
+        this.mainListWindowController = new MainListWindowController();
+    }
+
+    /**
+     * Setter of activeCheckBox value.
+     * @param active
+     */
+    public void setActiveCheckBox(boolean active) {
+        activeCheckBox.setSelected(active);
+    }
+
     @FXML
+    /**
+     * Event handler onSaveButtonPressed.
+     */
     void onSaveButtonPressed(ActionEvent event) {
         if (titleField.getText().isEmpty()) {
             logger.error("task title cannot be empty. Task was not saved.");
@@ -236,6 +302,9 @@ public class AddEditTaskWindow {
     }
 
     @FXML
+    /**
+     * Event handler onDeleteButtonPressed.
+     */
     void onDeleteButtonPressed(ActionEvent event) {
         try {
             model.getTasks().remove(task);
@@ -248,21 +317,25 @@ public class AddEditTaskWindow {
     }
 
     @FXML
-    void onActiveCheckBoxChecked (ActionEvent event) {
-
-    }
-
-    @FXML
+    /**
+     * Event handler onCancelButtonPressed.
+     */
     void onCancelButtonPressed(ActionEvent event) {
         logger.info("AddEditTaskWindow was closed.");
         cancelButton.getScene().getWindow().hide();
     }
 
     @FXML
+    /**
+     * Event handler onNonRepeatedRadioButton.
+     */
     void onNonRepeatedRadioButton(ActionEvent event) {
         setNonRepeated();
     }
 
+    /**
+     * Choose nonRepeatable kind of task.
+     */
     public void setNonRepeated() {
         nonRepeatedRadioButton.setSelected(true);
         repeatedRadioButton.setSelected(!nonRepeatedRadioButton.selectedProperty().getValue());
@@ -271,10 +344,16 @@ public class AddEditTaskWindow {
     }
 
     @FXML
+    /**
+     * Event handler  onRepeatedRadioButton.
+     */
     void onRepeatedRadioButton(ActionEvent event) {
         setRepeated();
     }
 
+    /**
+     * Choose repeatable kind of task.
+     */
     public void setRepeated() {
         repeatedRadioButton.setSelected(true);
         nonRepeatedRadioButton.setSelected(!repeatedRadioButton.selectedProperty().getValue());
@@ -282,6 +361,10 @@ public class AddEditTaskWindow {
         nonRepeatedBlockSetEnabled(false);
     }
 
+    /**
+     * Set values of visual elements.
+     * @param enable
+     */
     void nonRepeatedBlockSetEnabled(boolean enable) {
         fromDatePicker.setDisable(enable);
         fromHoursSlider.setDisable(enable);
@@ -306,6 +389,10 @@ public class AddEditTaskWindow {
         atMinutes.setDisable(!enable);
     }
 
+    /**
+     * Set values of visual elements.
+     * @param enable
+     */
     void repeatedBlockSetEnabled(boolean enable) {
         fromDatePicker.setDisable(!enable);
         fromHoursSlider.setDisable(!enable);
@@ -331,6 +418,9 @@ public class AddEditTaskWindow {
     }
 
     // onCloseWindow ***************************************************************************************************
+    /**                                                                                                              //*
+     * Event handler onCloseWindow.                                                                                  //*
+     */                                                                                                              //*
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
         @Override                                                                                                    //*
         public void handle(WindowEvent event) {                                                                      //*
@@ -338,6 +428,10 @@ public class AddEditTaskWindow {
         }                                                                                                            //*
     };                                                                                                               //*
                                                                                                                      //*
+    /**                                                                                                              //*
+     * Getter for event handler.                                                                                     //*
+     * @return EventHandler<WindowEvent>.                                                                            //*
+     */                                                                                                              //*
     public javafx.event.EventHandler<WindowEvent> getCloseEventHandler(){                                            //*
         return closeEventHandler;                                                                                    //*
     }                                                                                                                //*

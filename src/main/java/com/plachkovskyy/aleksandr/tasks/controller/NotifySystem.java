@@ -6,16 +6,23 @@ import org.apache.log4j.Logger;
 //import eu.hansolo.enzo.notification.Notification;
 //import javafx.event.ActionEvent;
 //import javafx.scene.control.Alert;
-
 import java.awt.*;
 import java.util.Date;
 
+/**
+ * The class for sending notifications.
+ */
 public class NotifySystem extends Thread {
 
     private Model model;
     private TrayIcon trayIcon;
     final static Logger logger = Logger.getLogger(StartDialogController.class);
 
+    /**
+     * Constructor.
+     * @param model
+     * @param trayIcon
+     */
     public NotifySystem(Model model, TrayIcon trayIcon) {
         this.model = model;
         this.trayIcon = trayIcon;

@@ -16,40 +16,76 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
+/**
+ * The class that offers to choose tasks file: current, loaded or new.
+ */
 public class StartDialogController {
 
     final static Logger logger = Logger.getLogger(StartDialogController.class);
     //        logger.info("Logger testing - info");
     //        logger.error("Logger testing - error");
-
     private String mode;
-    public String getMode() {return mode; }
-    public void setMode(String mode) { this.mode = mode; }
-
     private String filename;
-    public String getFilename() { return filename; }
-    public void setFilename(String filename) { this.filename = filename; }
 
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button cancelButton;
+
+    @FXML
+    private ComboBox<String> comboBox;
+
+    @FXML
+    private Button okButton;
+
+    /**
+     * Getter for mode.
+      * @return String mode.
+     */
+    public String getMode() {
+        return mode;
+    }
+
+    /**
+     * Setter of String mode.
+     * @param mode
+     */
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+
+    /**
+     * Getter for filename.
+     * @return String filename.
+     */
+    public String getFilename() {
+        return filename;
+    }
+
+    /**
+     * Setter of String filename.
+     * @param filename
+     */
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    /**
+     * Constructor.
+     */
     public StartDialogController() {
         setMode("current");
         setFilename("tasklist.txt");
     }
 
-        @FXML
-        private ResourceBundle resources;
-
-        @FXML
-        private URL location;
-
-        @FXML
-        private Button cancelButton;
-
-        @FXML
-        private ComboBox<String> comboBox;
-
-        @FXML
-        private Button okButton;
-
+    /**
+     * Event handler onOKButtonPressed.
+     * @param actionEvent
+     */
     public void onOKButtonPressed(ActionEvent actionEvent) {
         setMode(comboBox.getValue());
         //********* FileChooser ****************************************************************************************
@@ -96,17 +132,28 @@ public class StartDialogController {
         stage.showAndWait();
     }
 
+    /**
+     * Event handler onCancelButtonPressed.
+     * @param actionEvent
+     */
     public void onCancelButtonPressed(ActionEvent actionEvent) {
         logger.info("StartDialog was closed.");
         logger.info("application terminated.");
         System.exit(0);
     }
 
+    /**
+     * Event handler onComboBoxChecked.
+     * @param actionEvent
+     */
     public void onComboBoxChecked(ActionEvent actionEvent) {
             setMode(comboBox.getValue());
     }
 
     // onCloseDialog ***************************************************************************************************
+    /**                                                                                                              //*
+     * Event handler onCloseWindow                                                                                   //*
+     */                                                                                                              //*
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
         @Override                                                                                                    //*
         public void handle(WindowEvent event) {                                                                      //*
@@ -114,6 +161,10 @@ public class StartDialogController {
         }                                                                                                            //*
     };                                                                                                               //*
                                                                                                                      //*
+    /**                                                                                                              //*
+     * Getter for event handler.                                                                                     //*
+     * @return EventHandler<WindowEvent>.                                                                            //*
+     */                                                                                                              //*
     public javafx.event.EventHandler<WindowEvent> getCloseEventHandler(){                                            //*
         return closeEventHandler;                                                                                    //*
     }                                                                                                                //*

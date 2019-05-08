@@ -1,6 +1,5 @@
 package com.plachkovskyy.aleksandr.tasks.controller;
 
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -19,17 +18,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
+/**
+ * The class that builds timetable of tasks.
+ */
 public class CalendarWindowController {
 
     final static Logger logger = Logger.getLogger(CalendarWindowController.class);
-
+    private ObservableList<Calendar> calendarList = FXCollections.observableArrayList();
     private Model model;
-    public Model getModel() { return model; }
-    public void setModel(Model model) { this.model = model; }
-
-    public CalendarWindowController() {
-        this.model  = new Model();
-    }
 
     @FXML
     private ResourceBundle resources;
@@ -64,10 +60,33 @@ public class CalendarWindowController {
     @FXML
     void onDatePicker1Choose(ActionEvent event) {}
 
-    @FXML
-    void onDatePicker2Choose(ActionEvent event) {}
+    /**
+     * Getter for model.
+     * @return Model model.
+     */
+    public Model getModel() {
+        return model;
+    }
+
+    /**
+     * Setter of Model model.
+     * @param model
+     */
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    /**
+     * Constructor.
+     */
+    public CalendarWindowController() {
+        this.model  = new Model();
+    }
 
     @FXML
+    /**
+     * Event handler onApplyButtonPressed.
+     */
     void onApplyButtonPressed(ActionEvent event) {
         // checking DatePickers correct values
         if (datePicker2.getValue().isBefore(datePicker1.getValue())) {
@@ -81,12 +100,18 @@ public class CalendarWindowController {
     }
 
     @FXML
+    /**
+     * Event handler onCloseButtonPressed.
+     */
     void onCloseButtonPressed(ActionEvent event) {
         closeButton.getScene().getWindow().hide();
         logger.info("CalendarWindow was closed.");
     }
 
     // onCloseWindow ***************************************************************************************************
+    /**                                                                                                              //*
+     * Event handler onCloseWindow.                                                                                  //*
+     */                                                                                                              //*
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
         @Override                                                                                                    //*
         public void handle(WindowEvent event) {                                                                      //*
@@ -94,11 +119,18 @@ public class CalendarWindowController {
         }                                                                                                            //*
     };                                                                                                               //*
                                                                                                                      //*
+    /**                                                                                                              //*
+     * Getter for event handler.                                                                                     //*
+     * @return EventHandler<WindowEvent>.                                                                            //*
+     */                                                                                                              //*
     public javafx.event.EventHandler<WindowEvent> getCloseEventHandler(){                                            //*
         return closeEventHandler;                                                                                    //*
     }                                                                                                                //*
     //******************************************************************************************************************
 
+    /**
+     * Inner class for transmit data into TabeView.
+     */
     public class Calendar {
         Date    date;
         String  taskTitle;
@@ -110,6 +142,12 @@ public class CalendarWindowController {
         public boolean isRepeated() { return repeated; }
         public void setRepeated(boolean repeated) { this.repeated = repeated; }
 
+        /**
+         * Constructor.
+         * @param date
+         * @param taskTitle
+         * @param repeated
+         */
         public Calendar(Date date, String taskTitle, boolean repeated) {
             this.date = date;
             this.taskTitle = taskTitle;
@@ -117,8 +155,9 @@ public class CalendarWindowController {
         }
     }
 
-    private ObservableList<Calendar> calendarList = FXCollections.observableArrayList();
-
+    /**
+     * Prepare data for TableView.
+     */
     private void initData() {
         Date date1 = java.util.Date.from(datePicker1.getValue().
                                          atStartOfDay().
@@ -144,7 +183,10 @@ public class CalendarWindowController {
 */
     }
 
-    public void showTableAll() {
+    /**
+     * Binding data with TableView.
+     */
+     void showTableAll() {
         // preparation data for tableView
         // this could be database
         initData();

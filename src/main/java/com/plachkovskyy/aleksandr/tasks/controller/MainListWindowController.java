@@ -22,42 +22,17 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.apache.log4j.Logger;
 
+/**
+ * The class that shows the whole task list.
+ */
 public class MainListWindowController {
 
     final static Logger logger = Logger.getLogger(StartDialogController.class);
-
+    private ObservableList<Task> taskList = FXCollections.observableArrayList();
     private Model model;
     private Task task;
-
-    public MainListWindowController() {
-        this.model = new Model();
-        this.task = new Task();
-
-    }
-
     private String filename;
-    public String getFilename() { return filename; }
-    public void setFilename(String filename) {
-        this.filename = filename;
-        loadedFileNameLabel.setText(filename);
-    }
-
     private String mode;
-    public String getMode() {return mode; }
-    public void setMode(String mode) {
-        this.mode = mode;
-        modeLabel.setText("Using " + mode + " list:");
-    }
-
-    public void initFile() {
-        if (getMode().equals("current")) {
-            model.readFile();
-        } else if (getMode().equals("loaded")) {
-            model.changeFile(getFilename());
-        } else {  // "new"
-            model.createFile(getFilename());
-        }
-    }
 
     @FXML
     private ResourceBundle resources;
@@ -107,22 +82,89 @@ public class MainListWindowController {
     @FXML
     private TableColumn<Task, Boolean> activeColumn;
 
+    /**
+     * Constructor.
+     */
+    public MainListWindowController() {
+        this.model = new Model();
+        this.task = new Task();
+
+    }
+
+    /**
+     * Getter for filename.
+     * @return
+     */
+    public String getFilename() {
+        return filename;
+    }
+
+    /**
+     * Setter of String filename.
+      * @param filename
+     */
+    public void setFilename(String filename) {
+        this.filename = filename;
+        loadedFileNameLabel.setText(filename);
+    }
+
+    /**
+     * Getter for mode.
+     * @return String mode.
+     */
+    public String getMode() {
+        return mode;
+    }
+
+    /**
+     * Setter of String mode.
+     * @param mode
+     */
+    public void setMode(String mode) {
+        this.mode = mode;
+        modeLabel.setText("Using " + mode + " list:");
+    }
+
+    /**
+     * Setter of File for model.
+     */
+    public void initFile() {
+        if (getMode().equals("current")) {
+            model.readFile();
+        } else if (getMode().equals("loaded")) {
+            model.changeFile(getFilename());
+        } else {  // "new"
+            model.createFile(getFilename());
+        }
+    }
+
+    /**
+     * Return currently selected in the TableView task.
+     * @return
+     */
     public Task selectedTask() {
         Task selected = (Task) tableView.getSelectionModel().getSelectedItem();
         return selected;
     }
 
+    /**
+     * Return true in case of any row selected.
+     * @return boolean isSelected any row.
+     */
     public boolean isSelected() {
         return (tableView.getSelectionModel().getSelectedIndex() >= 0);
     }
 
     @FXML
+    /**
+     * Event handler onCalendarButtonPressed. CalendarWindow start.
+      */
     void onCalendarButtonPressed(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fxml/calendarWindow.fxml"));//******
             Parent root = loader.load();                                                                             //*
-            //Parent root = FXMLLoader.load(getClass().getResource("/controller/fxml/calendarWindow.fxml"));//change****
+            //Parent root = FXMLLoader.load(getClass().getResource("/controller/fxml/calendarWindow.fxml"));-alternative
             // set deleteButton enabled ********************************************************************************
             CalendarWindowController calendarWindowController = loader.<CalendarWindowController>getController();                           //*
             calendarWindowController.setModel(this.model);                                                           //*
@@ -143,6 +185,9 @@ public class MainListWindowController {
     }
 
     @FXML
+    /**
+     * Event handler onAddButtonPressed. AddTaskWindow start.
+      */
     void onAddButtonPressed(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
@@ -173,6 +218,9 @@ public class MainListWindowController {
     }
 
     @FXML
+    /**
+     * Event handler onDetailsButtonPressed. Details/deleteWindow start.
+     */
     void onDetailsButtonPressed(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
@@ -207,6 +255,9 @@ public class MainListWindowController {
     }
 
     @FXML
+    /**
+     * Event handler onExitButtonPressed. Application terminate.
+      */
     void onExitButtonPressed(ActionEvent event) {
         this.setFilename("tasklist.txt");
         model.saveFile(getFilename());
@@ -215,8 +266,9 @@ public class MainListWindowController {
         System.exit(0);
     }
 
-    private ObservableList<Task> taskList = FXCollections.observableArrayList();
-
+    /**
+     * Prepare data for TableView.
+     */
     public void initData() {
         tableView.impl_updatePeer();
         taskList.clear();
@@ -225,7 +277,10 @@ public class MainListWindowController {
         }
     }
 
-    public void showMainTable() {
+    /**
+     * Binding data with TableView.
+     */
+    void showMainTable() {
         // preparation data for tableView
         // this could be database
         initData();
@@ -243,6 +298,9 @@ public class MainListWindowController {
     }
 
     // onCloseWindow ***************************************************************************************************
+    /**
+     * Event handler onCloseWindow
+     */
     private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {//*
         @Override                                                                                                    //*
         public void handle(WindowEvent event) {                                                                      //*
@@ -250,11 +308,18 @@ public class MainListWindowController {
         }                                                                                                            //*
     };                                                                                                               //*
                                                                                                                      //*
+    /**                                                                                                              //*
+     * Getter for event handler.                                                                                     //*
+     * @return EventHandler<WindowEvent>.                                                                            //*
+     */                                                                                                              //*
     public javafx.event.EventHandler<WindowEvent> getCloseEventHandler(){                                            //*
         return closeEventHandler;                                                                                    //*
     }                                                                                                                //*
     //******************************************************************************************************************
 
+    /**
+     * Start notify System.
+     */
     private void notifySystemStart(){
 
         SystemTray tray = SystemTray.getSystemTray();
