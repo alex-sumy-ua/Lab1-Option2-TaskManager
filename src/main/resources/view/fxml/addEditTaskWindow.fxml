@@ -62,7 +62,7 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <CheckBox fx:id="activeCheckBox" layoutX="63.0" layoutY="360.0" mnemonicParsing="false" onAction="#onActiveCheckBoxChecked" prefWidth="55.0" text="active" />
+            <CheckBox fx:id="activeCheckBox" layoutX="63.0" layoutY="360.0" mnemonicParsing="false" prefWidth="55.0" text="active" />
             <Button fx:id="deleteButton" layoutX="320.0" layoutY="360.0" mnemonicParsing="false" onAction="#onDeleteButtonPressed" prefHeight="25.0" prefWidth="100.0" text="Delete" />
          </children>
       </AnchorPane>
